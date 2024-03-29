@@ -4,5 +4,5 @@ from django.shortcuts import render
 from django.shortcuts import render
 from django.http import HttpResponse
 
-def members(request):
+def Startstrona(request):
     return HttpResponse("Hello world!")
