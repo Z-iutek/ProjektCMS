@@ -3,9 +3,9 @@ Aby odpalić venv trzeba uzyc komendy
 Aby wyłaczyć wystarczy wpissać deactivate
 
 
-Aby zastartowac projecta django trzeba wejsc do folderu z projektem 
-cd CMS_website
-nastepnie wpisujemy python manage.py runserver
+Aby zastartowac projecta django trzeba wejsc do folderu z projektem: 
+"cd CMS_website" 
+nastepnie wpisujemy "python manage.py runserver"
 
 
 
