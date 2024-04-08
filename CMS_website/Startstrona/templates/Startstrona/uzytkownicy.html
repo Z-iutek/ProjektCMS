@@ -10,6 +10,13 @@
 </head>
 <body>
 
+<ul>
+    {% for stan in stany %}
+    <li><a href="{% url 'przywroc_stan_url' stan.id %}">{{ stan.nazwa }}</a></li>
+    {% endfor %}
+</ul>
+
+<!-- Formularz do zapisu nowego stanu -->
 <form method="POST">
     {% csrf_token %}
     {{ form.as_p }}
