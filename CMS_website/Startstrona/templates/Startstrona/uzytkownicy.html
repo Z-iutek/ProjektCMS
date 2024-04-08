@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pl">
+{% load static %}
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interaktywna Strona</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+</head>
+<body>
+
+<ul>
+    {% for stan in stany %}
+    <li><a href="{% url 'przywroc_stan_url' stan.id %}">{{ stan.nazwa }}</a></li>
+    {% endfor %}
+</ul>
+
+<!-- Formularz do zapisu nowego stanu -->
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Zapisz zmiany</button>
+</form>
+
+<button id="toggleMenu" onclick="toggleMenu()">☰</button>
+
+<div id="sidebar" class="sidebar closed">
+  <input type="color" id="colorPicker" value="#ffffff">
+  <button onclick="changeBackgroundColor()">Zmień kolor tła</button>
+  
+  <input type="text" id="titleInput" placeholder="Nowy tytuł strony">
+  <button onclick="changeTitle()">Zmień tytuł</button>
+  
+  <button onclick="addTextField()">Dodaj pole tekstowe</button>
+  <button onclick="removeTextField()">Usuń ostatnie pole tekstowe</button>
+</div>
+
+<div id="contentArea" class="content">
+  <!-- Tutaj pojawi się treść dodana przez użytkownika -->
+</div>
+
+<script src="{% static 'js/script.js' %}"></script>
+<script>
+    document.title = "{{ stan.tytul_strony }}";
+    document.body.style.backgroundColor = "{{ stan.kolor_tla }}";
+</script>
+
+</body>
+</html>
