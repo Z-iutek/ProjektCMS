@@ -10,6 +10,12 @@
 </head>
 <body>
 
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Zapisz zmiany</button>
+</form>
+
 <button id="toggleMenu" onclick="toggleMenu()">☰</button>
 
 <div id="sidebar" class="sidebar closed">
@@ -28,6 +34,10 @@
 </div>
 
 <script src="{% static 'js/script.js' %}"></script>
+<script>
+    document.title = "{{ stan.tytul_strony }}";
+    document.body.style.backgroundColor = "{{ stan.kolor_tla }}";
+</script>
 
 </body>
 </html>
