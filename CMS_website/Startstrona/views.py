@@ -4,7 +4,7 @@ from .models import Users
 
 def Startstrona(request):
   uzytkownicy = Users.objects.all().values()
-  template = loader.get_template('uzytkownicy.html')
+  template = loader.get_template('Startstrona/uzytkownicy.html')
   context = {
     'uzytkownicy': uzytkownicy,
   }
