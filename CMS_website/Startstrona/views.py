@@ -19,3 +19,4 @@ def przywroc_stan(request, stan_id):
     stan = get_object_or_404(StanStrony, pk=stan_id)
     # Tutaj możesz dodać logikę do przywrócenia stanu, np. przekierowanie z odpowiednimi danymi
     return render(request, 'Startstrona/przywroc.html', {'stan': stan})
+
