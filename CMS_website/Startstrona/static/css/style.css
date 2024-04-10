@@ -55,11 +55,17 @@ body {
   font-size: 18px;
   display: block;
 }
+#contentArea {
+    width: 5000px;
+  height: 5000px;
+}
 
 .content {
   flex-grow: 1;
   padding: 20px;
   margin-left: 20px; /* Dostosuj, jeśli chcesz więcej przestrzeni przy zamkniętym menu */
+  width: 5000px;
+  height: 5000px;
 }
 
 .user-text-field textarea {

@@ -1,11 +1,28 @@
 <html>
 {% load static %}
 <head>
+      <link rel="stylesheet" type="text/css" href="{% static 'css/style_przywroc.css' %}">
 </head>
 <body>
+<button onclick="goBack()">Cofnij</button>
+<div id="text_content">
+<div id="naglowek"> <h1><script>document.write('{{ stan.Naglowek }}')</script></h1></div>
+<div id="tekst_glowny"><h2><script>document.write('{{ stan.Tekst_glowny }}')</script></h2></div>
+<div id="stopka"><h3><script>document.write('{{ stan.Stopka }}')</script></h3></div>
+</div>
+
+
+
+
+
+
 <script>
+    function goBack() {
+  window.history.back();
+}
     document.title = "{{ stan.tytul_strony }}";
     document.body.style.backgroundColor = "{{ stan.kolor_tla }}";
+
 </script>
 
 

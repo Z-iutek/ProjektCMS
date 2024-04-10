@@ -4,14 +4,13 @@ from .forms import StanStronyForm
 
 # Widok do wyświetlania listy stanów i formularza do ich zapisu
 def Startstrona(request):
-    if request.method == "POST":
-        form = StanStronyForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('Startstrona')
-    else:
-        form = StanStronyForm()
-        stany = StanStrony.objects.all()  # Pobranie wszystkich stanów z bazy danych
+    form = StanStronyForm(request.POST or None)
+    stany = StanStrony.objects.all()  # Pobranie wszystkich stanów z bazy danych przed blokami warunkowymi
+
+    if request.method == "POST" and form.is_valid():
+        form.save()
+        return redirect('Startstrona')
+
     return render(request, 'Startstrona/uzytkownicy.html', {'form': form, 'stany': stany})
 
 # Widok do przywracania wybranego stanu

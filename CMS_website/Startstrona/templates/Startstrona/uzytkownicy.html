@@ -26,6 +26,11 @@
 <button id="toggleMenu" onclick="toggleMenu()">☰</button>
 
 <div id="sidebar" class="sidebar closed">
+    <br>
+    <br>
+    <br>
+
+
   <input type="color" id="colorPicker" value="#ffffff">
   <button onclick="changeBackgroundColor()">Zmień kolor tła</button>
   
@@ -34,14 +39,15 @@
   
   <button onclick="addTextField()">Dodaj pole tekstowe</button>
   <button onclick="removeTextField()">Usuń ostatnie pole tekstowe</button>
-</div>
 
+</div>
 <div id="contentArea" class="content">
   <!-- Tutaj pojawi się treść dodana przez użytkownika -->
 </div>
 
 <script src="{% static 'js/script.js' %}"></script>
 <script>
+
     document.title = "{{ stan.tytul_strony }}";
     document.body.style.backgroundColor = "{{ stan.kolor_tla }}";
 </script>

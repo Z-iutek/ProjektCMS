@@ -53,3 +53,5 @@ document.getElementById("contentArea").addEventListener('drop', (e) => {
     dragItem.style.top = e.pageY + 'px';
   }
 });
+
+
