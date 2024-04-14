@@ -5,8 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Interaktywna Strona</title>
-  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 <body>
 
@@ -15,7 +14,6 @@
     <li><a href="{% url 'przywroc_stan_url' stan.id %}">{{ stan.nazwa }}</a></li>
     {% endfor %}
 </ul>
-
 <!-- Formularz do zapisu nowego stanu -->
 <form method="POST">
     {% csrf_token %}
@@ -29,25 +27,41 @@
     <br>
     <br>
     <br>
-
-
-  <input type="color" id="colorPicker" value="#ffffff">
-  <button onclick="changeBackgroundColor()">Zmień kolor tła</button>
-  
-  <input type="text" id="titleInput" placeholder="Nowy tytuł strony">
-  <button onclick="changeTitle()">Zmień tytuł</button>
-  
-  <button onclick="addTextField()">Dodaj pole tekstowe</button>
-  <button onclick="removeTextField()">Usuń ostatnie pole tekstowe</button>
-
+    <input type="color" id="colorPicker" value="#ffffff">
+    <button onclick="changeBackgroundColor()">Zmień kolor tła</button>
+    <input type="text" id="titleInput" placeholder="Nowy tytuł strony">
+    <button onclick="changeTitle()">Zmień tytuł</button>
+    <button onclick="addTextField()">Dodaj pole tekstowe</button>
+    <button onclick="removeTextField()">Usuń ostatnie pole tekstowe</button>
 </div>
+
 <div id="contentArea" class="content">
-  <!-- Tutaj pojawi się treść dodana przez użytkownika -->
+    <!-- Tu może być dodatkowa zawartość -->
+</div>
+
+<div id="tableContainer">
+    <h2>Twoje szablony</h2>
+    <table id="templatesTable">
+        <thead>
+            <tr>
+                <th>Nazwa szablonu</th>
+                <th>Data utworzenia</th>
+                <th>Akcje</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Szablon 1</td>
+                <td>2023-04-14</td>
+                <td><button>Edytuj</button></td>
+            </tr>
+            <!-- Dodaj więcej wierszy zgodnie z potrzebą -->
+        </tbody>
+    </table>
 </div>
 
 <script src="{% static 'js/script.js' %}"></script>
 <script>
-
     document.title = "{{ stan.tytul_strony }}";
     document.body.style.backgroundColor = "{{ stan.kolor_tla }}";
 </script>
