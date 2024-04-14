@@ -1,8 +1,47 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
   display: flex;
+  flex-direction: column;
+  color: #ffffff; /* Ustawienie domyślnego koloru tekstu na biały */
+}
+
+.navbar {
+  background-color: #333;
+  overflow: hidden;
+  padding: 10px 0;
+  text-align: center; /* Centruje elementy menu */
+}
+
+.menu li {
+  list-style: none;
+  display: inline;
+}
+
+.menu li a {
+  color: inherit; /* Dziedziczenie koloru tekstu */
+  padding: 14px 20px;
+  text-decoration: none;
+  display: inline-block;
+  text-transform: uppercase; /* Powiększenie liter */
+  line-height: 1.5; /* Zwiększenie odstępu między liniami */
+}
+
+.menu li a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.form-container {
+  margin-bottom: 20px;
 }
 
 #toggleMenu {
@@ -17,7 +56,7 @@ body {
 }
 
 .sidebar {
-  height: 100vh;
+  height: 100%;
   width: 250px;
   position: fixed;
   z-index: 1;
@@ -32,44 +71,62 @@ body {
 .sidebar.closed {
   width: 0;
   overflow: hidden;
-  padding-top: 20px;
   transition: 0.5s;
 }
 
-.sidebar input[type="color"] {
-  padding: 5px;
-  width: 90%;
-  margin: 10px;
-}
-
-.sidebar button,
-.sidebar input[type="text"] {
+.sidebar input[type="color"],
+.sidebar input[type="text"],
+.sidebar button {
   padding: 10px;
-  text-align: left;
-  border: none;
-  background: none;
-  color: white;
-  width: 90%;
   margin: 10px;
-  text-decoration: none;
-  font-size: 18px;
-  display: block;
-}
-#contentArea {
-    width: 5000px;
-  height: 5000px;
+  width: calc(100% - 20px);
+  box-sizing: border-box;
+  color: white;
 }
 
 .content {
   flex-grow: 1;
   padding: 20px;
-  margin-left: 20px; /* Dostosuj, jeśli chcesz więcej przestrzeni przy zamkniętym menu */
-  width: 5000px;
-  height: 5000px;
+  margin-left: 260px;
+  color: #ffffff;
 }
 
 .user-text-field textarea {
   width: 100%;
   height: 100px;
   margin-bottom: 20px;
+}
+
+#tableContainer {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 300px;
+    background-color: green;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    height: 100%;
+    overflow-y: auto;
+}
+
+#templatesTable {
+    width: 100%;
+    margin-top: 20px;
+}
+
+#templatesTable th, #templatesTable td {
+    padding: 10px;
+}
+
+#templatesTable button {
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#templatesTable button:hover {
+    background-color: #367B37;
 }
