@@ -10,31 +10,15 @@
 <body>
 
 <ul>
-    {% for stan in stany %}
-    <li><a href="{% url 'przywroc_stan_url' stan.id %}">{{ stan.nazwa }}</a></li>
-    {% endfor %}
 </ul>
 <!-- Formularz do zapisu nowego stanu -->
+<div id="formularz">
 <form method="POST">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Zapisz zmiany</button>
 </form>
-
-<button id="toggleMenu" onclick="toggleMenu()">☰</button>
-
-<div id="sidebar" class="sidebar closed">
-    <br>
-    <br>
-    <br>
-    <input type="color" id="colorPicker" value="#ffffff">
-    <button onclick="changeBackgroundColor()">Zmień kolor tła</button>
-    <input type="text" id="titleInput" placeholder="Nowy tytuł strony">
-    <button onclick="changeTitle()">Zmień tytuł</button>
-    <button onclick="addTextField()">Dodaj pole tekstowe</button>
-    <button onclick="removeTextField()">Usuń ostatnie pole tekstowe</button>
 </div>
-
 <div id="contentArea" class="content">
     <!-- Tu może być dodatkowa zawartość -->
 </div>
@@ -50,10 +34,14 @@
             </tr>
         </thead>
         <tbody>
+        {% for stan in stany %}
             <tr>
-                <td>Szablon 1</td>
-                <td>2023-04-14</td>
-                <td><button>Edytuj</button></td>
+                <td>{{ stan.nazwa }}</td>
+
+                <td>{{ stan.Data }}</td>
+                <td><a href="{% url 'przywroc_stan_url' stan.id %}">Przejdz</a></td>
+
+        {% endfor %}
             </tr>
             <!-- Dodaj więcej wierszy zgodnie z potrzebą -->
         </tbody>
